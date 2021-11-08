@@ -1,19 +1,45 @@
 input.onPinPressed(TouchPin.P0, function () {
-	
+    if (Dice3R2 > 0) {
+        Dice3R2 = 0
+    } else {
+        basic.showIcon(IconNames.Yes)
+        Dice3R2 = Dice3
+    }
 })
 input.onButtonPressed(Button.A, function () {
-    Dice1R2 = Dice_1
+    if (Dice1R2 > 0) {
+        Dice1R2 = 0
+    } else {
+        basic.showIcon(IconNames.Yes)
+        Dice1R2 = Dice_1
+    }
 })
 input.onPinPressed(TouchPin.P2, function () {
-	
+    if (Dice5R2 > 0) {
+        Dice5R2 = 0
+    } else {
+        basic.showIcon(IconNames.Yes)
+        Dice5R2 = Dice5
+    }
 })
 input.onButtonPressed(Button.B, function () {
-	
+    if (Dice2R2 > 0) {
+        Dice2R2 = 0
+    } else {
+        basic.showIcon(IconNames.Yes)
+        Dice2R2 = Dice2
+    }
 })
 input.onPinPressed(TouchPin.P1, function () {
-	
+    if (Dice4R2 > 0) {
+        Dice4R2 = 0
+    } else {
+        basic.showIcon(IconNames.Yes)
+        Dice4R2 = Dice4
+    }
 })
 input.onGesture(Gesture.Shake, function () {
+    ShakeCounter = ShakeCounter + 1
     Dice_1 = randint(1, 6)
     Dice_1 = Dice1R2
     basic.showNumber(Dice_1)
@@ -31,10 +57,95 @@ input.onGesture(Gesture.Shake, function () {
     basic.showNumber(Dice5)
     basic.pause(500)
 })
-let Dice5 = 0
+let ShakeCounter = 0
 let Dice4 = 0
-let Dice3 = 0
+let Dice4R2 = 0
 let Dice2 = 0
+let Dice2R2 = 0
+let Dice5 = 0
+let Dice5R2 = 0
 let Dice_1 = 0
+let Dice3 = 0
+let Dice3R2 = 0
 let Dice1R2 = 0
 Dice1R2 = randint(1, 6)
+basic.forever(function () {
+    if (ShakeCounter > 2) {
+        ShakeCounter = 0
+        basic.showString("Shake")
+    } else {
+        if (input.buttonIsPressed(Button.AB)) {
+            if (Dice1R2 > 0) {
+                basic.showNumber(Dice1R2)
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            if (Dice2R2 > 0) {
+                basic.showNumber(Dice2R2)
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            if (Dice3R2 > 0) {
+                basic.showNumber(Dice3R2)
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            if (Dice4R2 > 0) {
+                basic.showNumber(Dice4R2)
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+            if (Dice5R2 > 0) {
+                basic.showNumber(Dice5R2)
+            } else {
+                basic.showIcon(IconNames.No)
+            }
+        } else {
+            if (Dice_1 == 0) {
+                basic.showString("Shake")
+            } else {
+                if (Dice1R2 > 0) {
+                    basic.showNumber(Dice1R2)
+                } else {
+                    basic.showNumber(Dice_1)
+                }
+                if (Dice2 == 0) {
+                    basic.showString("Shake")
+                } else {
+                    if (Dice2R2 > 0) {
+                        basic.showNumber(Dice2R2)
+                    } else {
+                        basic.showNumber(Dice2)
+                    }
+                }
+                if (Dice3 == 0) {
+                    basic.showString("Shake")
+                } else {
+                    if (Dice3R2 > 0) {
+                        basic.showNumber(Dice3R2)
+                    } else {
+                        basic.showNumber(Dice3)
+                    }
+                }
+                if (Dice4 == 0) {
+                    basic.showString("Shake")
+                } else {
+                    if (Dice4R2 > 0) {
+                        basic.showNumber(Dice4R2)
+                    } else {
+                        basic.showNumber(Dice4)
+                    }
+                }
+                if (Dice5 == 0) {
+                    basic.showString("Shake")
+                } else {
+                    if (Dice5R2 > 0) {
+                        basic.showNumber(Dice5R2)
+                    } else {
+                        basic.showNumber(Dice5)
+                    }
+                }
+            }
+        }
+    }
+})
