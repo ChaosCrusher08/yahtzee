@@ -59,16 +59,20 @@ input.onGesture(Gesture.Shake, function () {
 })
 let ShakeCounter = 0
 let Dice4 = 0
-let Dice4R2 = 0
 let Dice2 = 0
-let Dice2R2 = 0
 let Dice5 = 0
-let Dice5R2 = 0
 let Dice_1 = 0
 let Dice3 = 0
+let Dice5R2 = 0
+let Dice4R2 = 0
 let Dice3R2 = 0
+let Dice2R2 = 0
 let Dice1R2 = 0
 Dice1R2 = randint(1, 6)
+Dice2R2 = randint(1, 6)
+Dice3R2 = randint(1, 6)
+Dice4R2 = randint(1, 6)
+Dice5R2 = randint(1, 6)
 basic.forever(function () {
     if (ShakeCounter > 2) {
         ShakeCounter = 0
